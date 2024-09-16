@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Request Platform</title>
+  <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">REQUESTS</a></li>
+        <li><a href="#" id="login-btn">LOGIN</a></li>
+        <li><a href="#">REPAYMENTS</a></li>
+        <li><a href="#">UPLOADS</a></li>
+        <li><a href="#">DISBURSED</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Login Section -->
+  <section id="login-section" class="hidden">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="pin" placeholder="6-digit PIN" required pattern="\d{6}">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="hero-section hidden" id="hero-section">
+    <div class="column">
+      <h2>Previous Requests</h2>
+      <ul class="request-list">
+        <!-- Simulated previous requests -->
+      </ul>
+
+      <!-- New Request Form -->
+      <div class="form-container">
+        <h2>New Request Form</h2>
+        <form id="requestForm">
+          <input type="number" id="amount" placeholder="Requested Amount (₦)" required>
+          <input type="date" id="repayment_date" required>
+
+          <!-- Loan Duration Option (15 days or 30 days) -->
+          <select id="loan_duration" required>
+            <option value="30">30 days</option>
+            <option value="15">15 days</option>
+          </select>
+
+          <input type="number" id="interest_rate" value="10" disabled>
+          <input type="number" id="interest_payable" placeholder="Interest Payable (₦)" readonly>
+          <input type="number" id="repayable_amount" placeholder="Total Repayable Amount (₦)" readonly>
+          <input type="text" id="place_of_work" placeholder="Place of Work" required>
+          <input type="text" id="beneficiary_account_number" placeholder="Beneficiary Account Number" maxlength="10" required>
+          <input type="text" id="beneficiary_account_name" placeholder="Beneficiary Account Name" readonly>
+
+          <!-- Nigerian Banks List -->
+          <select id="beneficiary_bank_account" required>
+            <option value="">Select Beneficiary Bank</option>
+            <option value="access_bank">Access Bank</option>
+            <option value="citibank">Citibank</option>
+            <option value="ecobank">Ecobank</option>
+            <option value="fidelity_bank">Fidelity Bank</option>
+            <option value="fcmb">First City Monument Bank (FCMB)</option>
+            <option value="first_bank">First Bank of Nigeria</option>
+            <option value="gtb">Guaranty Trust Bank (GTB)</option>
+            <option value="heritage_bank">Heritage Bank</option>
+            <option value="keystone_bank">Keystone Bank</option>
+            <option value="polaris_bank">Polaris Bank</option>
+            <option value="providus_bank">Providus Bank</option>
+            <option value="stanbic_ibtc">Stanbic IBTC Bank</option>
+            <option value="standard_chartered">Standard Chartered Bank</option>
+            <option value="sterling_bank">Sterling Bank</option>
+            <option value="uba">United Bank for Africa (UBA)</option>
+            <option value="union_bank">Union Bank</option>
+            <option value="wema_bank">Wema Bank</option>
+            <option value="zenith_bank">Zenith Bank</option>
+          </select>
+          <button type="submit">Submit Request</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Second Column: Salary History (Last 6 Months) -->
+    <div class="column">
+      <h2>Salary History (Last 6 Months)</h2>
+      <div class="form-container">
+        <form id="salaryForm">
+          <!-- Loop for 6 months salary inputs -->
+          <div class="salary-entry">
+            <input type="number" placeholder="Salary Amount (₦)" required>
+            <input type="text" placeholder="Month of Salary" required>
+            <input type="date" placeholder="Date Salary was Credited" required>
+          </div>
+          <!-- Repeat the salary-entry block for more months -->
+          <button type="submit">Submit Salary History</button>
+        </form>
+      </div>
+    </div>
+    
+
+    <!-- Third Column: Upload Section -->
+    <div class="column">
+      <h2>Upload Documents</h2>
+      <div class="form-container">
+        <form id="uploadForm">
+          <label>Upload Account Statement:</label>
+          <input type="file" id="account_statement" required>
+
+          <label>Upload Staff ID Card (Front & Back):</label>
+          <input type="file" id="staff_id_card_front" accept="image/*" required>
+          <input type="file" id="staff_id_card_back" accept="image/*" required>
+
+          <label>Upload National ID Card:</label>
+          <input type="file" id="national_id_card" required>
+
+          <label>Upload Portrait Picture:</label>
+          <input type="file" id="portrait_picture" accept="image/*" required>
+
+          <p class="upload-placeholder">
+            (Acceptable ID documents: Clear copy of Voter's Card, NIMC, International Passport, Driving License)
+          </p>
+          <button type="submit">Upload Documents</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logout Section -->
+  <section id="logout-section" class="hidden">
+    <button id="logout-btn">Logout</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Request Platform</title>
+  <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section hidden" id="hero-section">
+    <!-- Other Form Inputs -->
+    
+    <!-- Third Column: Upload Section -->
+    <div class="column">
+      <h2>Upload Documents</h2>
+      <div class="form-container">
+        <form id="uploadForm">
+          <label>Upload Account Statement:</label>
+          <input type="file" id="account_statement" required>
+
+          <label>Upload Staff ID Card (Front & Back):</label>
+          <input type="file" id="staff_id_card_front" accept="image/*" required>
+          <img id="staff_id_front_preview" src="#" alt="Front of ID Card" class="image-preview hidden">
+          
+          <input type="file" id="staff_id_card_back" accept="image/*" required>
+          <img id="staff_id_back_preview" src="#" alt="Back of ID Card" class="image-preview hidden">
+
+          <label>Upload National ID Card:</label>
+          <input type="file" id="national_id_card" required>
+
+          <label>Capture Portrait Picture:</label>
+          <input type="file" id="portrait_picture" accept="image/*" required>
+          <img id="portrait_preview" src="#" alt="Portrait Picture" class="image-preview hidden">
+
+          <p class="upload-placeholder">
+            (Acceptable ID documents: Clear copy of Voter's Card, NIMC, International Passport, Driving License)
+          </p>
+          <button type="submit">Upload Documents</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
