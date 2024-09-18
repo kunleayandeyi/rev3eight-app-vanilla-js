@@ -1,114 +1,177 @@
-/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
+
+/* Applying the Fonts Correctly */
+.header-logo h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 2em;
+    color: #fff;
+}
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    color: #333;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  header {
+}
+
+/* Header Section */
+header {
     background-color: #333;
     padding: 10px;
-    color: white;
-    text-align: center;
-  }
-  
-  nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo i {
+    margin-right: 10px;
+}
+
+nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e5e5e5;
+}
+
+/* Box Model Styling with New Color Scheme */
+.box-model {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.box {
     display: flex;
     justify-content: center;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
+    align-items: center;
+    height: 200px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #fda085;
-  }
-  
-  .hero-section, #login-section {
-    display: flex;
-    padding: 20px;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 20px;
-    margin: 0 10px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  .form-container {
-    margin: 20px 0;
-  }
-  
-  .form-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-container form input,
-  .form-container form select {
-    margin-bottom: 15px;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .form-container form input:focus,
-  .form-container form select:focus {
-    border-color: #fda085;
-  }
-  
-  .form-container form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-container form button:hover {
-    background-color: #218838;
-  }
-  /* Image Preview Styling */
-.image-preview {
-    width: 150px;
-    height: auto;
-    margin-top: 10px;
+}
+
+.box i {
     display: block;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+/* Colorful Gradients for Boxes */
+#r1c1 {
+    background: linear-gradient(45deg, #1e3c72, #2a5298); /* Dark Blue to Light Blue */
+}
+
+#r1c2 {
+    background: linear-gradient(45deg, #ff9a00, #ffcf33); /* Orange to Yellow */
+}
+
+#r2c1 {
+    background: linear-gradient(45deg, #11998e, #38ef7d); /* Teal to Aqua */
+}
+
+#r2c2 {
+    background: linear-gradient(45deg, #833ab4, #fd1d1d); /* Purple to Pink */
+}
+
+/* Hover Effect */
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styling */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container button:focus {
+    outline: none;
+    border-color: #00b4d8;
+    box-shadow: 0 0 8px rgba(0, 180, 216, 0.2);
+}
+
+.form-container button {
+    background-color: #00b4d8;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #0096c7;
+}
+
+/* Image Preview */
+#capturedImagePreview {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    object-fit: cover;
     border: 2px solid #ddd;
-    padding: 5px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
+    border-radius: 5px;
+}
